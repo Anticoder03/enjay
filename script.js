@@ -29,7 +29,7 @@ gsap.from(".skill_pera",{
     }
 })
 gsap.from(".icons_skill span",{
-    x:-100,
+    x:-50,
     dutarion:1,
     stagger:0.75,
     opacity:0,
@@ -42,4 +42,29 @@ gsap.from(".icons_skill span",{
 
     }
 })
-       
+gsap.from(".cert",{
+    x:-100,
+    dutarion:1,
+    stagger:0.75,
+    opacity:0,
+    scrollTrigger:{
+        trigger:".cert",
+        start:"top 70%",
+        end:"top 30%",
+        
+
+    }
+})
+gsap.from(".contact",{
+    x:-100,
+    dutarion:1,
+    stagger:0.75,
+    opacity:0,
+    scrollTrigger:{
+        trigger:".contact",
+        start:"top 70%",
+        end:"top 30%",
+        
+
+    }
+})
