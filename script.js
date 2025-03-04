@@ -51,7 +51,7 @@ gsap.from(".cert",{
         trigger:".cert",
         start:"top 70%",
         end:"top 30%",
-        
+        scrub:true
 
     }
 })
@@ -64,7 +64,6 @@ gsap.from(".contact",{
         trigger:".contact",
         start:"top 70%",
         end:"top 30%",
-        
-
+        scrub:true
     }
 })
