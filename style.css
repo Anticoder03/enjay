@@ -1,0 +1,58 @@
+.skills{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+@media screen and (max-width:900px) {
+    .contact{
+        flex-direction: column !important;
+    }   
+    .left_contect,.r_contect{
+        width: 100% !important;
+    }
+}
+@media screen and (max-width: 640px){
+    .contact{
+        flex-direction: column;
+    }
+    .left_contect,.r_contect{
+        width: 100% !important;
+    }
+    
+    input{
+        padding: 8px !important;
+    }
+    .list{
+        gap: 20px !important;
+    }
+    .item a{
+        font-size: 20px !important;
+    }
+    .s_container{
+        flex-direction: column !important;
+    }
+    .skill_pera{
+        width: 100% !important;
+    }
+    .skills{
+        grid-template-columns: repeat(2, 1fr);
+        width: 100% !important;
+    }
+    .main{
+        flex-direction: column-reverse;
+    }
+    .main .left{
+        padding: 10px !important;
+        width: 100% !important;
+
+    }
+    .main .right{
+        padding: 10px !important;
+        width: 100% !important;
+    }
+}
+.cert_card{
+    &:hover{
+        transform: scale(1.2);
+        transition: all 0.5s;
+    }
+}
