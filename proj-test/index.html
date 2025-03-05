@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP ScrollTrigger Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 200vh;/* Make the page tall enough to scroll */
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      overflow: hidden;
+      opacity: 0;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      /* margin: 100px auto; */
+    }
+    .list{
+        display: flex;
+        justify-content: end;
+        gap: 30px;
+    }
+    .item{
+        font-size: 1rem;
+        list-style: none;
+    }
+    .main{
+        height: 50vh;
+        background-color: #3498db;  
+        margin-bottom: 4rem ;
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="list">
+            <li class="item">home</li>
+            <li class="item">about</li>
+            <li class="item">contect</li>
+            <li class="item">service</li>
+        </ul>
+    </nav>
+    <div class="main">
+
+    </div>
+  <div class="box">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo exercitationem perferendis dolor at ea enim deserunt minima debitis tempore laborum voluptatibus placeat, nesciunt minus. Quaerat perferendis dolore distinctio molestiae itaque tempora ducimus, eos, ipsum culpa natus voluptatibus illum harum esse a sit vitae pariatur quae laborum error quas! Cupiditate, quas harum similique quibusdam a, veniam vitae necessitatibus, enim quia repellendus earum ipsum illo. Necessitatibus, in. Eligendi, illo. Cumque blanditiis, laboriosam est ex dignissimos quod porro molestiae odio enim expedita accusantium ratione quos aspernatur ab quisquam mollitia error doloribus perferendis maiores eos, beatae esse. Corporis quaerat nostrum inventore quos impedit explicabo harum assumenda voluptatibus, porro fuga enim cumque! Adipisci odit aliquam nihil perspiciatis veritatis, vitae voluptatum commodi ipsum, quasi aperiam neque. Pariatur distinctio alias perspiciatis quisquam expedita ex incidunt amet? Eum, accusantium nihil. Quaerat placeat hic ducimus esse quam at nisi corrupti sed quia similique numquam culpa voluptas suscipit facilis labore mollitia ea, accusantium ex quas cupiditate! Optio assumenda earum, quo accusamus eveniet harum cumque nostrum ex cupiditate necessitatibus illo perferendis accusantium aliquid. Architecto beatae delectus, fugit ea nostrum distinctio quidem ullam dolorum sapiente officia facilis reiciendis rerum quos. Libero dolor asperiores minima soluta alias quaerat, est non cum! Debitis, facilis!
+  </div>
+
+  <!-- Include GSAP and ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  <script>
+    let tl = 
+    tl.to(".box",{
+       
+        duration:1,
+        opacity:1,
+         height:"50vh",
+            width:"50vw",  
+        scrollTrigger:{
+            trigger:".box",
+            markers:true,
+            start:"top 20%",
+            end:"top 10%",
+            // scrub:true,
+           
+                
+        }
+        
+    })
+  </script>
+</body>
+</html>

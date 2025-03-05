@@ -1,3 +1,4 @@
+<?php include "./conn.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,7 +143,7 @@
     </div>
 </div>
 <div class="r_contect w-1/2">
-    <form class="w-full  bg-white p-6 md:p-8 rounded-lg  container mx-auto">
+    <form class="w-full  bg-white p-6 md:p-8 rounded-lg  container mx-auto" method="post">
         <!-- <h2 class="text-2xl md:text-3xl font-semibold text-center text-gray-800 mb-4">Get in Touch</h2> -->
     
         <div class="mb-4">
@@ -234,3 +235,20 @@
 </script>
 <script src="./script.js"></script>
 </html>
+
+<?php 
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $msg = $_POST['text'];
+    if (empty($name) || empty($email) || empty($msg)){
+        echo "<script>alert('Please fill all the fields')</script>";
+    }else{
+        $sql = "INSERT INTO `tb1` (`name`, `email`, `message`) VALUES ('$name', '$email', '$msg');";
+        $result = mysqli_query($conn, $sql);
+        if($result){
+            echo "<script>alert('Message sent successfully!')</script>";
+        }
+    }
+}
+?>
