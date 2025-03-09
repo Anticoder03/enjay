@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
         <h1 class="text-2xl font-semibold text-gray-800 mb-4">Edit Note</h1>
 
@@ -19,4 +19,4 @@
             </div>
         </form>
     </div>
-</x-layout>
+</x-app-layout>

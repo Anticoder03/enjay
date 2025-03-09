@@ -12,7 +12,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $notes = note::query()->orderBy('created_at','desc')->paginate();
+        $notes = note::query()->where('user_id',request()->user()->id)->orderBy('created_at','desc')->paginate();
         // dd($notes);
         return view('note.index',['notes'=>$notes]);
     }
@@ -33,7 +33,7 @@ class NoteController extends Controller
         $data = $request->validate([
             'note'=>['required','string']
         ]);
-        $data['user_id'] = 1;
+        $data['user_id'] = $request->user()->id;
         $note = note::create($data);
         return to_route('note.show',$note)->with('message','Note Created.');
         
@@ -44,23 +44,38 @@ class NoteController extends Controller
      */
     public function show(note $note)
     {
+        if($note->user_id !== request()->user()->id){
+            abort(403);
+        }
         return view('note.show',['note'=>$note]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(note $note)
+    public function edit(Note $note)
     {
-        return view('note.edit',['note'=>$note]);
+        if($note->user_id !== request()->user()->id){
+            abort(403);
+        }
+        return view('note.edit', ['note' => $note]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, note $note)
+    public function update(Request $request, Note $note)
     {
-        //
+        if($note->user_id !== request()->user()->id){
+            abort(403);
+        }
+        $data = $request->validate([
+            'note' => ['required', 'string']
+        ]);
+
+        $note->update($data);
+
+        return to_route('note.show', $note)->with('message', 'Note Updated.');
     }
 
     /**
@@ -68,6 +83,10 @@ class NoteController extends Controller
      */
     public function destroy(note $note)
     {
-        //
+        if($note->user_id !== request()->user()->id){
+            abort(403);
+        }
+        $note->delete();
+        return to_route('note.index')->with('message','Note Deleted.');
     }
 }

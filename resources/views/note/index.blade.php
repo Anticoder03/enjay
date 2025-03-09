@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
     <div class="max-w-4xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-2xl font-semibold text-gray-800">My Notes</h2>
@@ -14,10 +14,15 @@
                 <div class="flex justify-end gap-2 mt-3">
                     <a href=" {{ route('note.show',$note)}} " class="px-3 py-1 text-blue-600 hover:underline">View</a>
                     <a href=" {{ route('note.edit', $note)}} " class="px-3 py-1 text-green-600 hover:underline">Edit</a>
-                    <button class="px-3 py-1 text-red-600 hover:underline">Delete</button>
+                    <form action="{{route('note.destroy',$note)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="px-3 py-1 text-red-600 hover:underline">Delete</button>
+                    </form>
                 </div>
             </div>
             @endforeach
         </div>
+        {{$notes->links()}}
     </div>
-</x-layout>
+</x-app-layout>
