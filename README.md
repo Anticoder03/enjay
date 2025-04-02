@@ -8,9 +8,9 @@
 </p>
 
 
-
-```markdown
 ## Getting Started
+
+
 
 Follow these steps to clone and run the Laravel project locally:
 
@@ -59,7 +59,7 @@ php artisan serve
 ```
 
 The application will be available at [http://127.0.0.1:8000](http://127.0.0.1:8000).
-```
+
 
 
 
